@@ -1,7 +1,11 @@
 ---
 title: "(MySQL, MariaDB) (1153): Got a packet bigger than 'max_allowed_packet' bytes"
 date: 2021-06-24 17:58:28 -0400
-categories: mysql
+categories: MySQL
+tag: 
+  - MySQL
+  - MariaDB
+  - Database
 ---
 
 MySQL 또는 MariaDB 에 dump 된 데이터를 import 또는 export 시킬때 볼수 있는 에러,
