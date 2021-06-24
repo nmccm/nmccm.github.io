@@ -1,7 +1,11 @@
 ---
 title: "라라벨(Laravel) 프로젝트 만들기"
 date: 2021-06-24 13:44:28 -0400
-categories: laravel
+categories: Laravel
+Tags:
+- Laravel
+- Composer
+- Github
 ---
 
 - 라라벨 인스톨러 사용
