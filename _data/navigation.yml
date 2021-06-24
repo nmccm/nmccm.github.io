@@ -17,3 +17,6 @@ docs:
         url: /docs/installation/
       - title: "Upgrading"
         url: /docs/upgrading/
+
+sidebar:
+  nav: "docs"
