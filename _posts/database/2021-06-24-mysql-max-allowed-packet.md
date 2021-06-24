@@ -1,7 +1,7 @@
 ---
 title: "(MySQL, MariaDB) (2013) Lost connection to MySQL server during query"
 date: 2021-06-24 16:49:28 -0400
-categories: mysql
+categories: MySQL
 tag: 
   - MySQL
   - MariaDB
