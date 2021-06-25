@@ -1,7 +1,10 @@
 ---
 title: "(MySQL, MariaDB) (1153): Got a packet bigger than 'max_allowed_packet' bytes"
 date: 2021-06-24 17:58:28 -0400
-categories: MySQL
+categories: 
+  - MySQL
+  - MariaDB
+  - Database
 tag: 
   - MySQL
   - MariaDB
