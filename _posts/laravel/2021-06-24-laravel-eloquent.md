@@ -1,7 +1,9 @@
 ---
 title: "라라벨 엘로퀀트 컬럼 서브쿼리 (Laravel Eloquent)"
 date: 2021-06-24 16:08:28 -0400
-categories: Laravel eloquent
+categories: 
+- Laravel 
+- Eloquent
 tags:
 - Laravel
 - Eloquent
