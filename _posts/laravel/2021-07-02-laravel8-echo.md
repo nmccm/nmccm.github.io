@@ -30,10 +30,10 @@ $ npm install -g laravel-echo-server
 php artisan make:event SiteMessage
 ```
 
-현재 Laravel 8.49 에서는 SiteMessage 클래스를 artisan 으로 생성시에 ShouldBroadcastNow 가 Implement 되지 않으므로 SiteMessage 클래스 정의 부분을 아래처럼 변경한다.
+현재 Laravel 8.49 에서는 SiteMessage 클래스를 artisan 으로 생성시에 ShouldBroadcast 가 Implement 되지 않으므로 SiteMessage 클래스 정의 부분을 아래처럼 변경한다.
 
 ```php
-class SiteMessage implements ShouldBroadcastNow
+class SiteMessage implements ShouldBroadcast
 ```
 
 broadcastOn 메쏘드의 리턴값을 PrivateChannel 에서 Channel 로 변경하고, 통신 채널명을 site-message 로 변경
