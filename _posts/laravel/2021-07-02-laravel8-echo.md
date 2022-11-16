@@ -3,8 +3,6 @@ title: "Laravel Echo"
 categories: 
 - Framework 
 - Laravel
-- PHP
-- Laravel-echo-server
 tags:
 - Framework 
 - Laravel
