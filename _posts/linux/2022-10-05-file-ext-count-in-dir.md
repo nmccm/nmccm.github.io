@@ -2,9 +2,7 @@
 title: "(리눅스) 특정 디렉토리 (하위 디렉토리 포함) 확장자, 확장자 수, 용량 체크 쉘 스크립트"
 categories: 
 - Linux
-- ShellScript
 tags:
-- Linux 
 - CentOS
 - Ubuntu
 - ShellScript

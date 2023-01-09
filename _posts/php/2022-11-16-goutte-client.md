@@ -1,11 +1,9 @@
 ---
 title: "Goutte Client Example"
 categories: 
-- Framework 
-- Laravel
+- PHP
 tags:
-- Framework 
-- Laravel
+- Laravel8
 - PHP
 - Goutte Client
 ---
