@@ -67,7 +67,8 @@ $("#upload-excel-file-submit-btn").click(() => {
     });
 });
 ```
-- web.php
+
+
 ```php
 Route::group(['prefix' => 'product'], function() {       
     Route::post('multiRegisterProc', [ProductController::class, 'multiRegisterProc'])
@@ -75,7 +76,6 @@ Route::group(['prefix' => 'product'], function() {
 });
 ```
 
-- ProductController
 ```php
 use App\Imports\ExcelImport;
 public function multiRegisterProc(Request $request) {
@@ -116,7 +116,7 @@ public function multiRegisterProc(Request $request) {
     }
 }
 ```
-- ExcelImport
+
 ```php
 namespace App\Imports;
 
@@ -126,10 +126,6 @@ use Maatwebsite\Excel\Concerns\ToModel;
 
 class ExcelImport implements ToModel
 {
-    /**
-     * @param array $row
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Model[]|void|null
-     */
     public function model(array $row) {
     }
 }
