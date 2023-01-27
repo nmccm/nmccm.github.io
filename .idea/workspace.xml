@@ -87,14 +87,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "//wsl$/apm-firstmall-test-ubuntu/home/devteam/www/github.io",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/apm-firstmall-test-ubuntu/home/devteam/www/github.io&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Y:\home\devteam\www\github.io\_posts" />
@@ -113,6 +113,9 @@
       <updated>1668587865829</updated>
       <workItem from="1668587867031" duration="615000" />
       <workItem from="1673242916330" duration="1649000" />
+      <workItem from="1673845797718" duration="628000" />
+      <workItem from="1673847697072" duration="572000" />
+      <workItem from="1674803129499" duration="1407000" />
     </task>
     <servers />
   </component>
@@ -143,6 +146,9 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/ShellScript/2022-10-05-file-ext-count-in-dir.md">
