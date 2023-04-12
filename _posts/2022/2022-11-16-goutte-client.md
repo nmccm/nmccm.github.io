@@ -2,13 +2,14 @@
 title: "Goutte Client Example"
 categories: 
 - PHP
+- Laravel
 tags:
-- Laravel8
+- Laravel
 - PHP
 - Goutte Client
 ---
 
-Goutte Client Example (v230412-1)
+Goutte Client Example
 
 ```php
 
