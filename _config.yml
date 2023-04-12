@@ -20,7 +20,7 @@ minimal_mistakes_skin    : "dark" # "default" # "air", "aqua", "contrast", "dark
 locale                   : "en-US"
 title                    : "!@#$%^&*()"
 title_separator          : "-"
-subtitle                 : "site tagline that appears below site title in masthead"
+subtitle                 : "Welcome to !@#$%^&*() site."
 name                     : "!@#$%^&*()"
 description              : "!"
 url                      : https://nmccm.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -126,13 +126,13 @@ footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url:
+      url: "https://twitter.com/nmccm"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      # url:
+      url: "https://www.facebook.com/nmccm"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/nmccm"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -141,7 +141,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://www.instagram.com/nmccm76/"
 
 
 # Reading Files
