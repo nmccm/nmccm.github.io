@@ -73,9 +73,9 @@ class path1 extends front_base
     private $userId = null;
     private $password = null;
     private $database = null;
-    private $dumpPathPrefix = ROOTPATH . "data/data/database_backup/";
+    private $dumpPathPrefix = ROOTPATH . "dt/dt/database_backup/";
     private $dumpPath = null;
-    private $schemaPath = ROOTPATH . "custom/database/";
+    private $schemaPath = ROOTPATH . "ct/database/";
 
     public function backupScript() {
         try {
@@ -143,5 +143,24 @@ class path1 extends front_base
 }
 ```
 
-CI 프레임워크에서 사용되는 데이터베이스 설정 파일을 읽어들여 mysqldump 명령어로 백업을 진행하여, 파일의 존재 여부를 체크하여 성공/실패 구분 처리를 하였다.
-실 토큰 검증 로직은 보안상 제거 하였다.
+CI 프레임워크에서 사용되는 데이터베이스 설정 파일을 읽어들여 mysqldump 명령어로 백업을 진행하여, 파일의 존재 여부를 체크하여 성공/실패 구분 처리를 하였다. (실 토큰 검증 로직은 보안상 제거 하였다)
+
+이제 퍼스트몰 웹 서버에 PHP 코드에서 정의한 폴더안에 매일 YYYYMMDD 형태의 폴더와 백업데이터를 생성한다. 백업 데이터를 스크립트 작성을 아래와 같이 한다. 아래 스크립트는 sshpass 를 사용하므로 설치가 필요하다.
+SERVER_ACCOUNT_PASSWORD, SERVER_ACCOUNT_ID, WEBSERVER_PATH 는 본인들의 서버 환경에 맞도록 수정이 필요하다.
+
+```php
+# vi /root/backup_firstmall.sh
+
+#!/bin/bash
+DATE=`date "+%Y%m%d"`
+mkdir /root/backup_firstmall_db/${DATE} && chmod +w /root/backup_firstmall_db/${DATE} && sshpass -pSERVER_ACCOUNT_PASSWORD scp -o StrictHostKeyChecking=no SERVER_ACCOUNT_ID@1.1.1.1:/WEBSERVER_PATH/database_backup/${DATE}/*.sql ./${DATE}/
+```
+
+위 스크립트를 주기적으로 실행시켜줄 스케쥴러를 등록 한다.
+
+```php
+# cat crontab -l
+
+0 10 * * * cd /root/backup_firstmall_db && /root/backup_firstmall.sh 2> /dev/null
+```
+
