@@ -20,7 +20,7 @@ minimal_mistakes_skin    : "dark" # "default" # "air", "aqua", "contrast", "dark
 locale                   : "en-US"
 title                    : "!@#$%^&*()"
 title_separator          : "-"
-subtitle                 : "Welcome to !@#$%^&*() site..!"
+subtitle                 : "Welcome to !@#$%^&*() site"
 name                     : "!@#$%^&*()"
 description              : "!"
 url                      : https://nmccm.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -88,7 +88,7 @@ social:
 
 # Analytics
 analytics:
-  provider               : "google" # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
     tracking_id          : "G-9P8B7L572H"
     anonymize_ip         : true # true, false (default)
