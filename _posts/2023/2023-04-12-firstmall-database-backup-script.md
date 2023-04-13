@@ -11,14 +11,16 @@ tags:
 - ShellScript
 ---
 
-코드이그나이터(이하 CI) 프레임워크로 개발된 가비아 쇼핑몰을 유지보수 할 일이 생겨 소스를 보던중, 데이터베이스 백업이 별도로 이루어 지지 않는다는 점을 발견했다. [firstmall web server] 에서 1차 데이리 백업을 받고, [legacy backup server] 에 옮긴다. 각각의 서버에서 데이터 유지기간은 [firstmall web server] 는 1일, legacy backup server] 의 데이터는 30일간 보관
+코드이그나이터(이하 CI) 프레임워크로 개발된 가비아 쇼핑몰을 유지보수 할 일이 생겨 소스를 보던중, 데이터베이스 백업이 별도로 이루어 지지 않는다는 점을 발견했다. 
+쇼핑몰 웹 서버에서 1차 데이리 백업을 받고, 별도 백업 서버에 복제하는 방식으로 이중 백업을 하기로 결정했다. 
+각각의 서버에서 데이터 유지기간은 [firstmall web server] 는 1일, legacy backup server] 의 데이터는 30일간 보관
 
 - [firstmall web server] 에서 1차 데이터 백업을 받는다. 
 - [firstmall web server] 에서 당일 외 데이터는 삭제 PHP Cli 사용할 수 없는 환경이라 웹으로 작성하고, 
 - [legacy backup server] 에서 호출하는 방식으로 구현했다.
 
 아래는 legacy backup server 에서 호출하는 crontab 코드
-```linux
+```php
 # cat crontab -l
 
 0 9 * * * cd /root/backup_firstmall_log && wget https://domain.com/classname1/method
@@ -105,7 +107,7 @@ class classname1 extends front_base
 
 crontab 에 작성해 둔 명령어대로 실행해보면 /root/back_firstmall_log 폴더에 method, method.1 파일이 생성되며, 내용은 아래와 같이 성공여부, 테이블명, 용량으로 백업 로그를 남긴다.
 
-```linux
+```php
 # tail -n 10 /roo/backup_firstmall_log/method.1
 
 [create success] table_name1 536766
