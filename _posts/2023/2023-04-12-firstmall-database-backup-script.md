@@ -27,13 +27,47 @@ wget 명령은 웹서버에서 파싱과 브라우저 랜더링까지 마친 내
 ```php
 # cat crontab -l
 
-0 9 * * * cd /root/backup_firstmall_log && wget https://domain.com/classname1/method
+0 9 * * * cd /root/backup_firstmall_log && wget https://domain.com/path1/backupScript
 ```
 
-상기 코드는 /root/backup_firstmall_log 폴더로 이동 후 firstmall web server 의 html 파일을 가져오는 명령어이다. 이것만으로 [firstmall web server] 호출 할 수 있으며, 호출된 URL 에 해당하는 컨트롤러는 실행되므로 충분했다. 아래는 [firstmall web server] 의 백업 코드이다.
+스케쥴러가 실행된후 해당 폴더를 조회하면 아래와 같이 파일이 생성되는 것을 확인할 수 있다.
 
 ```php
-class classname1 extends front_base
+# ls -al
+total 2136
+drwxr-xr-x  2 root root  4096 2023-04-13 09:00 .
+dr-xr-x--- 14 root root  4096 2023-03-29 10:07 ..
+-rw-r--r--  1 root root 19835 2023-03-18 09:00 backupScript
+-rw-r--r--  1 root root 19835 2023-03-19 09:00 backupScript.1
+-rw-r--r--  1 root root 19838 2023-03-28 09:00 backupScript.10
+-rw-r--r--  1 root root 19883 2023-03-29 09:00 backupScript.11
+-rw-r--r--  1 root root 19883 2023-03-30 09:00 backupScript.12
+-rw-r--r--  1 root root 19883 2023-03-31 09:00 backupScript.13
+-rw-r--r--  1 root root 19934 2023-04-01 09:00 backupScript.14
+-rw-r--r--  1 root root 19934 2023-04-02 09:00 backupScript.15
+-rw-r--r--  1 root root 19936 2023-04-03 09:00 backupScript.16
+-rw-r--r--  1 root root 19936 2023-04-04 09:00 backupScript.17
+```
+
+데이터베이스 전체의 백업으로 진행하면 파일이 비대해져 이동, 복사, 압축 등 모든것에 시간 비용이 많이 발생하므로 테이블 단위로 백업을 진행하였다.  
+
+```php
+# tail -n 10 /roo/backup_firstmall_log/method.1
+
+[create success] table_name1 536766
+[create success] table_name1 1085235
+[create success] table_name1 2001905
+[create success] table_name1 441873
+[create success] table_name1 43335598
+[create success] table_name1 3322563
+[create success] table_name1 2173
+```
+
+backupScript 파일 내용은 위와 같이 성공 실패 여부, 테이블명, 용량 형태로 각 테이블별로 백업되도록 구현하였다.
+백업을 실제로 실행하는 PHP 코드는 아래와 같다. 
+
+```php
+class path1 extends front_base
 {
     private $hostname = null;
     private $userId = null;
@@ -43,7 +77,7 @@ class classname1 extends front_base
     private $dumpPath = null;
     private $schemaPath = ROOTPATH . "custom/database/";
 
-    public function method() {
+    public function backupScript() {
         try {
             $targetPathAndFile = 'config/database';
             $connectionInfo = file_get_contents(APPPATH . $targetPathAndFile . EXT);
@@ -109,16 +143,5 @@ class classname1 extends front_base
 }
 ```
 
-crontab 에 작성해 둔 명령어대로 실행해보면 /root/back_firstmall_log 폴더에 method, method.1 파일이 생성되며, 내용은 아래와 같이 성공여부, 테이블명, 용량으로 백업 로그를 남긴다.
-
-```php
-# tail -n 10 /roo/backup_firstmall_log/method.1
-
-[create success] table_name1 536766
-[create success] table_name1 1085235
-[create success] table_name1 2001905
-[create success] table_name1 441873
-[create success] table_name1 43335598
-[create success] table_name1 3322563
-[create success] table_name1 2173
-```
+CI 프레임워크에서 사용되는 데이터베이스 설정 파일을 읽어들여 mysqldump 명령어로 백업을 진행하여, 파일의 존재 여부를 체크하여 성공/실패 구분 처리를 하였다.
+실 토큰 검증 로직은 보안상 제거 하였다.
