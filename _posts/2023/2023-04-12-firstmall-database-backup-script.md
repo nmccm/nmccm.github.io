@@ -1,11 +1,14 @@
 ---
-title: "Laravel Excel Import1111"
+title: "Firstmall Database Backup Script"
 categories:
-- Laravel
-  tags:
-- Laravel8
-- Excel
+- CodeIgniter
+tags:
+- CodeIgniter
 - PHP
+- MySQL
+- Firstmall
+- Linux
+- ShellScript
 ---
 
 코드이그나이터(이하 CI) 프레임워크로 개발된 가비아 쇼핑몰을 유지보수 할 일이 생겨 소스를 보던중, 데이터베이스 백업이 별도로 이루어 지지 않는다는 점을 발견했다. [firstmall web server] 에서 1차 데이리 백업을 받고, [legacy backup server] 에 옮긴다. 각각의 서버에서 데이터 유지기간은 [firstmall web server] 는 1일, legacy backup server] 의 데이터는 30일간 보관
