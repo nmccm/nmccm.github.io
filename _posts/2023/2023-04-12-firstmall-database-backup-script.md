@@ -164,7 +164,7 @@ mkdir /root/backup_firstmall_db/${DATE} && chmod +w /root/backup_firstmall_db/${
 0 10 * * * cd /root/backup_firstmall_db && /root/backup_firstmall.sh 2> /dev/null
 ```
 
-정상적으로 스케쥴러와 스크립트가 작동하였다면 다음와 같은 화면을 볼 수 있을것이다.
+정상적으로 스케쥴러와 스크립트가 작동하였다면 다음와 같이 데이터가 복제될 것이다.
 
 ```php
 # ls -al /root/backup_firstmall_db/
@@ -196,5 +196,63 @@ drwxr-xr-x 34 root root      4096 2023-04-13 10:00 ..
 -rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202112.sql
 -rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202201.sql
 -rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202202.sql
+```
 
+퍼스트몰 웹 서버는 가용 가능한 용량이 한정되어 있다. 복제 대상이 아닌 데이터는 삭제할 필요가 있으므로, 백업과 동일한 시나리오로 백업서버에서 스케쥴러 이용하여 정해진 시간대에 웹 기반으로 호출하는 방식으로 진행한다
+아래 코드는 복제 대상을 제외한 데이터를 삭제하는 코드이다.
+
+```php
+public function removeBackupData() {
+    try {
+        if(!preg_match('/^\/\w+\/[_\w]+\/\w+\/\w+\/[_\w]+\/$/i', $this->dumpPathPrefix)) {
+            throw new Exception('dumpPathPrefix is null');
+        }
+
+        for($i = 3; $i > 0; $i--) {
+            $date = date('Ymd', strtotime("-" . $i . " day"));
+            $path = $this->dumpPathPrefix . $date;
+
+            if(is_dir($path)) {
+                $cmd = "ls -al {$path}";
+                exec($cmd,$output, $return);
+                $removeFileCnt = 0;
+
+                if(isset($output[0]) && !empty($output[0]) && is_array($output)) {
+                    foreach($output as $out) {
+                        preg_match_all('/[\w\d_-]+\.[\w]{3}+$/i', $out,$item);
+                        $file = $this->dumpPathPrefix . $date . '/' . $item[0][0];
+
+                        if(isset($item[0][0]) && !empty($item[0][0]) && is_array($item[0])) {
+                            if(preg_match('/^\/\w+\/\w+\/\w+\/\w+\/\w+\/\d+\/[\w\d]+\.[\w]{3}$/i', $file)) {
+                                @unlink($file);
+                            }
+
+                            if(is_file($file)) {
+                                echo '[fail] ' . $file . PHP_EOL;
+                            }
+                            else {
+                                ++$removeFileCnt;
+                                echo '[delete success] ' . $file . PHP_EOL;
+                            }
+                        }
+                    }
+                }
+                else {
+                    echo 'can not match : ' . $cmd . PHP_EOL;
+                }
+
+                @rmdir($path);
+                echo 'Remove file count : ' . $removeFileCnt . PHP_EOL;
+            }
+            else {
+                echo 'can not find ' . $path . PHP_EOL;
+            }
+        }
+
+    }
+    catch(Exception $e) {
+        print "Exception : " . $e->getMessage();
+        exit;
+    }
+}
 ```
