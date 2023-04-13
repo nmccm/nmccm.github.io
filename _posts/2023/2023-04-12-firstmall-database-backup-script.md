@@ -164,3 +164,37 @@ mkdir /root/backup_firstmall_db/${DATE} && chmod +w /root/backup_firstmall_db/${
 0 10 * * * cd /root/backup_firstmall_db && /root/backup_firstmall.sh 2> /dev/null
 ```
 
+정상적으로 스케쥴러와 스크립트가 작동하였다면 다음와 같은 화면을 볼 수 있을것이다.
+
+```php
+# ls -al /root/backup_firstmall_db/
+
+total 776
+drwxr-xr-x 34 root root  4096 2023-04-13 10:00 .
+dr-xr-x--- 14 root root  4096 2023-03-29 10:07 ..
+drwxr-xr-x  2 root root 20480 2023-04-08 10:01 20230408
+drwxr-xr-x  2 root root 20480 2023-04-09 10:02 20230409
+drwxr-xr-x  2 root root 20480 2023-04-10 10:02 20230410
+drwxr-xr-x  2 root root 20480 2023-04-11 10:02 20230411
+drwxr-xr-x  2 root root 20480 2023-04-12 10:01 20230412
+drwxr-xr-x  2 root root 20480 2023-04-13 10:03 20230413
+
+# ls -al /root/backup_firstmall_db/20230413/
+
+total 1238560
+drwxr-xr-x  2 root root     20480 2023-04-13 10:03 .
+drwxr-xr-x 34 root root      4096 2023-04-13 10:00 ..
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202103.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202104.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202105.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202106.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202107.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202108.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202109.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202110.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202111.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202112.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202201.sql
+-rw-r--r--  1 root root     19641 2023-04-13 10:00 fm_account_calculate_202202.sql
+
+```
