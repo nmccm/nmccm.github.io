@@ -98,7 +98,7 @@ analytics:
 author:
   name             : "nmccm"
   avatar           : "/assets/images/nn.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "안녕하세요. 제 이름은 임덕균입니다. 주로 사용하는 닉네임은 nmccm 입니다. 저는 한국에서 태어나서 지금까지도 쭈~욱 한국에서 살고 있으며, 웹 개발자로 우물안에서 소심하게 활동중입니다. PHP 를 주로 다루며, 상황에 따라 C#, JAVA 를 아주 조금 티끌만큼 다룰 줄 압니다. 이곳은 제가 틈틈히 저의 노하우 및 공유하고픈 글 또는 기록이 필요한 글을 적는곳입니다."
+  bio              : "Hello World"
   location         : "Asia"
   email            : "nmccm at naver.com"
   links:
