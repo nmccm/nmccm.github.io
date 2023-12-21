@@ -11,7 +11,7 @@ SFTP 연결을 위해 계정을 생성하고 접속해보면 root 권한을 가�
 
 SFTP 연결에 사용할 계정은 content 이므로 우선 계정을 생성한다. 
 
-```linux
+```bash
 # useradd content
 # passwd content
 Changing password for user content.
@@ -22,7 +22,7 @@ passwd: all authentication tokens updated successfully.
 
 vi 이용하여 /etc/ssh/sshd_config 파일을 아래와 같이 편집한다. 
 
-```linux
+```bash
 #Subsystem       sftp    /usr/libexec/openssh/sftp-server -f local2 -l INFO
 Subsystem       sftp    internal-sftp
 
@@ -37,7 +37,7 @@ Match User content
 
 설정 내용 반영을 위해 sshd 서비스 재 시작
 
-```linux
+```bash
 # service sshd restart
 ```
 
