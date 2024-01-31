@@ -2,14 +2,10 @@
 title: "Firstmall Database Backup Script"
 categories:
 - PHP
-- CodeIgniter
 tags:
 - CodeIgniter
-- PHP
-- MySQL
 - Firstmall
 - Linux
-- ShellScript
 ---
 
 코드이그나이터(이하 CI) 프레임워크로 개발된 가비아 쇼핑몰을 유지보수 할 일이 생겨 소스를 보던중, 데이터베이스 백업이 별도로 이루어 지지 않는다는 점을 발견했다. 

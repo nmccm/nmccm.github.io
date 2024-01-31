@@ -2,9 +2,7 @@
 title: "HTML Checkbox library"
 categories:
 - JavaScript
-- Jquery
 tags:
-- JavaScript
 - Jquery
 ---
 

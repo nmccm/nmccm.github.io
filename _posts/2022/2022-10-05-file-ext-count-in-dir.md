@@ -5,8 +5,6 @@ categories:
 tags:
 - CentOS
 - Ubuntu
-- ShellScript
-- Find
 ---
 
 리눅스(linux) find 기반 특정 디렉토리 (하위 디렉토리 포함) 확장자, 확장자 수, 용량 체크 쉘 스크립트

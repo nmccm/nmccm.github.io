@@ -2,9 +2,7 @@
 title: "Jquery 사용하여 특정 요소(element)의 모든 attributes 확인"
 categories:
 - JavaScript
-- Jquery
 tags:
-- JavaScript
 - Jquery
 ---
 

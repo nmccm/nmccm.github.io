@@ -1,10 +1,9 @@
 ---
 title: "Laravel Echo"
 categories: 
-- Laravel
+- PHP
 tags:
 - Laravel8
-- PHP
 - Laravel-echo-server
 ---
 

@@ -3,7 +3,10 @@ title: "Div 줄내림 방지(inline)"
 categories:
 - CSS
 tags:
-- CSS
+- style
+- display
+- inline
+- inline-block
 ---
 
 div 태그는 block element 이므로 별도의 CSS 없이는 줄 내림이 기본이다.

@@ -2,10 +2,8 @@
 title: "Goutte Client Example"
 categories: 
 - PHP
-- Laravel
 tags:
 - Laravel
-- PHP
 - Goutte Client
 ---
 
