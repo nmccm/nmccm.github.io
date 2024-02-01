@@ -6,14 +6,14 @@ tags:
 - NodeJS
 ---
 
-1. 개발환경  
+### 1. 개발환경  
 
 ```bash
 OS : Ubuntu 20.04 
 NPM : 6.14.4
 NodeJS : v10.19.0
 ```
-2. NodeJS 설치
+### 2. NodeJS 설치
 
 시스템에 NodeJS 설치 여부를 체크하여 아래와 같이 설치된 버전이 없다면 설치를 진행
 
@@ -71,9 +71,9 @@ Processing triggers for man-db (2.9.1-1) ...
 $ node --version
 v10.19.0
 ```
-3. NPM 설치
+### 3. NPM 설치
 
-본인이 개발한 NodeJS 파일을 .EXE 파일로 생성하려면 pkg 필요, pkg 설치는 nodejs 패키지 관리자(npm)로 패키지 설치를 진행해야 하므로 npm 설치를 진행
+본인이 개발한 NodeJS 파일을 .EXE 파일로 생성하려면 pkg 필요하다. pkg 설치는 nodejs 패키지 관리자(npm)으로 설치를 진행해야 하므로 패키지 관리자(npm) 설치를 진행한다.
 
 ```bash
 $ npm --version
@@ -121,7 +121,7 @@ $ npm --version
 6.14.4
 ```
 
-4. 패키지(pkg) 설치
+### 4. 패키지(pkg) 설치
 
 ```bash
 $ sudo npm install -g pkg
@@ -130,7 +130,7 @@ $ sudo npm install -g pkg
 added 127 packages from 94 contributors in 8.243s
 ```
 
-5. 개발 (프로젝트 폴더 생성)
+### 5. 개발 (프로젝트 폴더 생성)
 
 ```bash
 $ cd /home/devteam
@@ -138,6 +138,7 @@ $ mkdir nodejs_exe
 $ cd nodejs_exe
 $ mkdir src
 $ mkdir bin
+$ npm init
 $ ls -al
 total 16
 drwxr-xr-x 4 devteam devteam 4096 Jan 31 14:05 .
@@ -146,7 +147,7 @@ drwxr-xr-x 2 devteam devteam 4096 Jan 31 14:06 bin
 drwxr-xr-x 2 devteam devteam 4096 Jan 31 14:05 src
 ```
 
-5. 개발 (index.js)
+### 5. 개발 (index.js)
 
 ```bash
 $ vi ./src/index.js
@@ -154,11 +155,37 @@ $ vi ./src/index.js
 console.log('success');
 ```
 
-6. 빌드
+### 6. 빌드
+
+디렉토리 내용을 살펴보면 (ls -al) index.exe 파일이 생성된것을 확인할 수 있다. 해당 파일을 윈도우로 옮겨 실행해보면 정상적으로 success 메세지를 확인할 수 있다. 
 
 ```bash
 $ cd /home/devteam/nodejs_exe/bin
 $ pkg ../src/index.js --targets node10-win-x64
+또는
+$ pkg .
 ```
 
-디렉토리 내용을 살펴보면 (ls -al) index.exe 파일이 생성된것을 확인할 수 있다. 해당 파일을 윈도우로 옮겨 실행해보면 정상적으로 success 메세지를 확인할 수 있다. 
+### 7. 문제점
+
+네이티브 코드로 작성된 노드 모듈을 사용하면 해당 프로젝트 폴더외에서 실행 시 아래와 같은 에러가 발생한다. 아래 실행 파일은 단순히 엑셀파일을 읽어들여 콘솔에 출력하는 프로그램이다.
+
+```bash
+PS C:\nmccm\0.TEMP\test> .\index.exe
+pkg/prelude/bootstrap.js:1872
+      throw error;
+      ^
+
+Error: Cannot find module 'read-excel-file/node'
+1) If you want to compile the package/file into executable, please pay attention to compilation warnings and specify a literal in 'require' call. 2) If you don't want to compile the package/file into executable and want to 'require' it from filesystem (likely plugin), specify an absolute path in 'require' call using process.cwd() or process.execPath.
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:634:15)
+    at Function._resolveFilename (pkg/prelude/bootstrap.js:1951:46)
+    at Function.Module._load (internal/modules/cjs/loader.js:560:25)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at Module.require (pkg/prelude/bootstrap.js:1851:31)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (C:\snapshot\p1\index.js:0:0)
+    at Module._compile (pkg/prelude/bootstrap.js:1926:22)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:651:32)
+```

@@ -7,10 +7,17 @@ tags:
 - Excel
 ---
 
-환경 : Laravel 8.83.26, WSL1 (Apache 2.4, PHP 7.3.27, MariaDB 10.4.18)
+### 1. 환경
 
+```bash
+OS : window 10 pro (with WSL1)
+Apache : 2.4
+PHP : 7.3.27
+MariaDB : 10.4.18
+```
+### 2. HTML & Javascript & Jqeury
 
-라라벨 프레임워크 8 버전에서 엑셀 업로드 및 읽어들이는 방법
+라라벨 프레임워크 8 버전에서 엑셀 업로드 및 읽어들이는 방법. 새로운 뷰를 하나 만든다. 컨트롤러 진입없이 바로 라우터에서 뷰 화면을 출력 가능하다.
 
 ```html
 <head>    
@@ -26,6 +33,8 @@ tags:
     <div><button id="upload-excel-file-submit-btn">등록</button></div>
 </form>
 ```
+
+upload-excel-file-submit-btn 을 id 로 지정된 버튼을 클릭하면 Jquery confirm 뜨고, Yes 선택하면 productMultiRegisterProc 네임을 가진 컨트롤러에 요청을 보내는 코드이다.
 
 ```javascript
 $("#upload-excel-file-submit-btn").click(() => {
@@ -68,6 +77,9 @@ $("#upload-excel-file-submit-btn").click(() => {
 });
 ```
 
+### 3. 라라벨 라우터 설정 
+
+http://domain/product/multiRegisterProc 주소에 대한 별칭으로 productMultiRegisterProc 설정하였다. 위 자바스크립트에서는 앞서 언급한 주소로 호출할 것이다.
 
 ```php
 Route::group(['prefix' => 'product'], function() {       
@@ -76,8 +88,11 @@ Route::group(['prefix' => 'product'], function() {
 });
 ```
 
+### 4. 라라벨 컨트롤러 작성
+
 ```php
 use App\Imports\ExcelImport;
+
 public function multiRegisterProc(Request $request) {
     try {
         $eleName = 'product_multi_register';
@@ -116,6 +131,10 @@ public function multiRegisterProc(Request $request) {
     }
 }
 ```
+
+### 5. 엑셀 핸들러
+
+ToModel 을 implements 하였으므로, 반드시 model 메쏘드를 재 정의 해줘야 한다.
 
 ```php
 namespace App\Imports;

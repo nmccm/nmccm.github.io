@@ -7,6 +7,14 @@ tags:
 - Ubuntu
 ---
 
+### 1. 환경
+
+```bash
+OS : Ubuntu 18.04
+```
+
+### 2. 스크립트 작성
+
 리눅스(linux) find 기반 특정 디렉토리 (하위 디렉토리 포함) 확장자, 확장자 수, 용량 체크 쉘 스크립트
 
 ```bash
@@ -26,6 +34,8 @@ do
    done | sort -rn
 done
 ```
+
+### 3. 실행
 
 ```bash
 $ sudo chmod +x z_ext.sh

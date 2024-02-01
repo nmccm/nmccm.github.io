@@ -45,16 +45,16 @@ class GoutteClientExampleController extends Controller
 
             $crawler2 = $client->submit($form);
             // echo $crawler2->filterXPath('html/head/title')->text()."\n";
-//            $orgBody = $crawler2->filterXPath('html/body')->text();
+            // $orgBody = $crawler2->filterXPath('html/body')->text();
             // log::debug(print_r($orgBody, true));
             $descriptions = $crawler2->filter('table.contentTable')->each(function($node) {
                 // return $node->html();
                 log::debug(print_r($node->html(), true));
             });
-//            echo '<pre>';
-//            $r = get_class_methods($crawler);
-//            print_r($form);
-//            echo '</pre>';
+            // echo '<pre>';
+            // $r = get_class_methods($crawler);
+            // print_r($form);
+            // echo '</pre>';
 
             return view('temp.index', [
                 'client' => $client,                

@@ -7,8 +7,18 @@ tags:
 - Laravel-echo-server
 ---
 
-환경 : Laravel 8.49, XAMPP (Apache 2.4, PHP 7.3.27, MariaDB 10.4.18) 
+### 1. 개발환경  
 
+```bash
+OS : Window 10 pro
+XAMPP
+- Apache : 2.4
+- PHP : 7.3.27
+- MariaDB 10.4.18
+- Laravel 8.49
+```
+
+### 2. 라라벨 프로젝트 생성 및 설정
 
 새로운 라라벨 프로젝트를 생성하고, 필요한 패키지들을 설치한다.
 
@@ -18,6 +28,7 @@ $ cd echo2
 $ composer require predis/predis
 $ npm install -g laravel-echo-server
 ```
+### 3. 필요 파일 설정
 
 브로드캐스팅 핸들러(이벤트가 발생하면 변경된 데이터 보관 및 가공하는 CLASS) 생성. 아래 커맨드는 \App\Event\SiteMessage 클래스를 생성한다. 
 
@@ -80,7 +91,7 @@ config/database.php 에서 redis 관련 내용 변경
     ],
 ```
 
-라라벨 에코서버 환경 설정
+### 4. 라라벨 에코서버 환경 설정
 
 ```bash 
 $ laravel-echo-server init
@@ -101,7 +112,7 @@ key: 6445f3f75715ac09b948a01d4dcd7959
 Configuration file saved. Run laravel-echo-server start to run server.
 ```
 
-node.js 관련 모듈 설치
+### 5. Node.js 관련 모듈 설치
 
 ```bash
 $ npm install
@@ -171,9 +182,12 @@ Route::get('/send', function () {
         <script src="{{ url('/js/laravel-echo.js') }}" type="text/javascript"></script>
         <script>
             window.laravel_echo_port='{{ env("LARAVEL_ECHO_PORT") }}';
-            window.Echo.channel('site-message').listen('SiteMessage', (data) => {
-                console.log(data);
-            });
+            window.Echo.channel('site-message').listen(
+                'SiteMessage', 
+                (data) => {
+                    console.log(data);
+                }
+            );
         </script>
     </head>
     <body class="antialiased">
@@ -181,6 +195,8 @@ Route::get('/send', function () {
     </body>
 </html>
 ```
+
+### 6. 테스트 
 
 라라벨 에코서버를 실행
 
