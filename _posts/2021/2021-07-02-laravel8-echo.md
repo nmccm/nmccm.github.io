@@ -1,11 +1,13 @@
 ---
-title: "Laravel Echo"
+title: "Laravel 8 에서 Echo 시스템 구축기"
 categories: 
 - PHP
 tags:
 - Laravel8
 - Laravel-echo-server
 ---
+
+라라벨(Laravel)의 브로드캐스팅(Broadcasting)은 실시간 이벤트를 처리하고 클라이언트에게 푸시하는 기능을 제공합니다. 이것은 웹 소켓(WebSocket)을 기반으로 하거나, 추상화된 Redis, Pusher 등의 서비스를 통해 구현될 수 있습니다. 여기에서는 라라벨의 브로드캐스팅이 Redis를 사용하는 경우를 중심으로 설명하겠습니다.
 
 ### 1. 개발환경  
 
