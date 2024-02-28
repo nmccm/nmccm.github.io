@@ -7,7 +7,9 @@ tags:
 - Goutte Client
 ---
 
-Goutte Client Example
+간단한 PHP 웹 스크레이퍼인 Goutte 라이브러리를 사용하여 특정 사이트에 로그인하고, 로그인 세션을 얻어야만 접근 가능한 화면을 스크래핑 해본 과정을 여기에 기록한다. Goutte 공식(https://github.com/FriendsOfPHP/Goutte)사이트에서는 아래와 같이 설명한다.
+
+> Goutte is a screen scraping and web crawling library for PHP. Goutte provides a nice API to crawl websites and extract data from the HTML/XML responses. WARNING: This library is deprecated. As of v4, Goutte became a simple proxy to the HttpBrowser class from the Symfony BrowserKit component. To migrate, replace Goutte\Client by Symfony\Component\BrowserKit\HttpBrowser in your code.
 
 ```php
 
