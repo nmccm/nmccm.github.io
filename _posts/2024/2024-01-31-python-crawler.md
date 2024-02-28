@@ -6,15 +6,6 @@ tags:
 - Crawler
 ---
 
-### 환경
-
-```bash
-OS : Windows 10 Pro (Version : 22H2, OS 빌드 : 19045.3803)
-Python : 3.12.1
-```
-
-### 개발환경 구축
-
 - vscode (VisualCode) 다운로드 후 설치를 진행한다. 
 - 파이썬 다운로드 후 설치를 진행한다. (python-3.12.1-amd64.exe) 
 - 파이썬은 기본 설치가 아닌 "Customize installation", 아래 옵션은 반드시 체크
@@ -28,11 +19,20 @@ Python : 3.12.1
 - vscode 메뉴중 File -> Open Folder 클릭 후 위 폴더를 지정 후 확인을 선택
 - vscode 메뉴중 Terminal -> New Terminal 선택
 
+### 환경
+
+```bash
+OS : Windows 10 Pro (Version : 22H2, OS 빌드 : 19045.3803)
+Python : 3.12.1
+```
+
+### 정상 설치 여부 체크
+
 ```python
 print('hello world')
 ```
 
-위 코드를 작성하고 first.py 저장, 하단의 Terminal 에서 first.py 파일을 실행하면 아래와 같은 화면이 볼 수 있다.
+코드를 작성하고 first.py 저장, 하단의 Terminal 에서 first.py 파일을 실행하면 아래와 같은 화면이 볼 수 있다.
 
 ```python
 PS C:\nmccm\python\projects> py first.py
