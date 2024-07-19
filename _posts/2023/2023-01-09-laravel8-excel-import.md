@@ -2,6 +2,7 @@
 title: "Laravel Excel Import"
 categories:
 - PHP
+- Laravel
 tags:
 - Laravel8
 - Excel

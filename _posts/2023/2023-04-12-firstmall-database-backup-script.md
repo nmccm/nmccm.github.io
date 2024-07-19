@@ -2,6 +2,7 @@
 title: "Firstmall Database Backup Script"
 categories:
 - PHP
+- CodeIgniter
 tags:
 - CodeIgniter
 - Firstmall

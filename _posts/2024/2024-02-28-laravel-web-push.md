@@ -2,6 +2,7 @@
 title: "라이브러리(web-push-php) 사용하여 웹 푸쉬 구현하기"
 categories: 
 - PHP
+- Laravel
 tags:
 - Laravel8
 ---

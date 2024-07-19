@@ -2,9 +2,8 @@
 title: "Div 줄내림 방지(inline)"
 categories:
 - CSS
+- HTML
 tags:
-- style
-- display
 - inline
 - inline-block
 ---

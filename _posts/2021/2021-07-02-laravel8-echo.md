@@ -2,6 +2,7 @@
 title: "Laravel 8 에서 Echo 시스템 구축기"
 categories: 
 - PHP
+- Laravel
 tags:
 - Laravel8
 - Laravel-echo-server
