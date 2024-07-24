@@ -138,7 +138,11 @@ Successfully tagged lmc-mariadb:latest
 ```
 
 ### 5. 이미지 확인
-정상적으로 이미지가 생성되었다. 다만 메세지에서도 보이듯이 더이상 build 명령어를 통한 빌드는 곧 릴리즈에서 제거되어 제 기능을 하지 않아, 빌드 중간중간 생성되는 임시 이미지들이 제거되지(--force-rm) 않은 모습을 볼 수 있다.
+정상적으로 이미지가 생성되었다. 다만 메세지에서도 보이듯이
+
+> DEPRECATED: The legacy builder is deprecated and will be removed in a future release. Install the buildx component to build images with BuildKit:        https://docs.docker.com/go/buildx/
+
+ 더이상 build 명령어를 통한 빌드는 곧 릴리즈에서 제거되어 제 기능을 하지 않아, 빌드 중간중간 생성되는 임시 이미지들이 제거되지(--force-rm) 않은 모습을 볼 수 있다.
 ```bash
 $ sudo docker images -a
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
