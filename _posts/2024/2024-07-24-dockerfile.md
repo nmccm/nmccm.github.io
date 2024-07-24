@@ -1,5 +1,5 @@
 ---
-title: "Dockerfile 로 Mariadb 도커 이미지 생성 방법"
+title: "Dockerfile 로 Mariadb 도커 이미지 생성"
 categories: 
 - Docker
 - MariaDB
@@ -224,11 +224,6 @@ ubuntu        latest    35a88802559d   6 weeks ago          78.1MB
 
 ### 7. 이미지 실행 (컨테이너)
 ```bash
-$ sudo docker images -a
-REPOSITORY    TAG       IMAGE ID       CREATED              SIZE
-lmc-mariadb   latest    0ea9cd6379c4   About a minute ago   490MB
-ubuntu        latest    35a88802559d   6 weeks ago          78.1MB
-
 $ sudo docker run -d --name lmc-mariadb --env MARIADB_ROOT_PASSWORD=abcd1234  lmc-mariadb:latest
 c824055a661088dbb5dddaff586b769243cc11b058861b7aef4dc47096ef87b6
 
@@ -260,4 +255,4 @@ MariaDB [(none)]> show databases;
 MariaDB [(none)]>
 ```
 
-잘 되는것 같습니다. :)
+잘 되는것 같다. :)
