@@ -98,6 +98,11 @@ a) mariadbd 설정
 > > 특징: 기본적으로 STATEMENT 형식을 사용하지만, 특정 상황에서는 자동으로 ROW 형식으로 전환됩니다.  
 > > 장점: 두 형식의 장점을 결합하여 사용합니다. 비결정적 함수나 복잡한 트랜잭션에서는 ROW 형식을 사용하여 데이터 일관성을 유지합니다.  
 > > 단점: 설정이 복잡할 수 있습니다.
+>  
+
+  
+
+
 ```bash
 root@12fcda8f5af6:/# vi /etc/mysql/mariadb.conf.d/50-server.cnf
 [mariadbd]
