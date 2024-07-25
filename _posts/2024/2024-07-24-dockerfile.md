@@ -1,5 +1,5 @@
 ---
-title: "Dockerfile 로 Mariadb 도커 이미지 생성 방법"
+title: "Dockerfile 로 Mariadb 도커 이미지 생성"
 categories: 
 - Docker
 - MariaDB
@@ -138,7 +138,11 @@ Successfully tagged lmc-mariadb:latest
 ```
 
 ### 5. 이미지 확인
-정상적으로 이미지가 생성되었다. 다만 메세지에서도 보이듯이 더이상 build 명령어를 통한 빌드는 곧 릴리즈에서 제거되어 제 기능을 하지 않아, 빌드 중간중간 생성되는 임시 이미지들이 제거되지(--force-rm) 않은 모습을 볼 수 있다.
+정상적으로 이미지가 생성되었다. 다만 메세지에서도 보이듯이
+
+> DEPRECATED: The legacy builder is deprecated and will be removed in a future release. Install the buildx component to build images with BuildKit:        https://docs.docker.com/go/buildx/
+
+ 더이상 build 명령어를 통한 빌드는 곧 릴리즈에서 제거되어 제 기능을 하지 않아, 빌드 중간중간 생성되는 임시 이미지들이 제거되지(--force-rm) 않은 모습을 볼 수 있다.
 ```bash
 $ sudo docker images -a
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
@@ -220,11 +224,6 @@ ubuntu        latest    35a88802559d   6 weeks ago          78.1MB
 
 ### 7. 이미지 실행 (컨테이너)
 ```bash
-$ sudo docker images -a
-REPOSITORY    TAG       IMAGE ID       CREATED              SIZE
-lmc-mariadb   latest    0ea9cd6379c4   About a minute ago   490MB
-ubuntu        latest    35a88802559d   6 weeks ago          78.1MB
-
 $ sudo docker run -d --name lmc-mariadb --env MARIADB_ROOT_PASSWORD=abcd1234  lmc-mariadb:latest
 c824055a661088dbb5dddaff586b769243cc11b058861b7aef4dc47096ef87b6
 
@@ -256,4 +255,4 @@ MariaDB [(none)]> show databases;
 MariaDB [(none)]>
 ```
 
-잘 되는것 같습니다. :)
+잘 되는것 같다. :)
