@@ -13,8 +13,10 @@ tags:
 
 ### 0. 환경
 > Window Hyper-V 10.0.22621.1  
-> Ubuntu 24.04 LTS
+> Ubuntu 24.04 LTS  
 > MariaDB 11.4.2
+
+
 ### 1. Init
 a) 호스트 시스템 업데이트  
 b) 아이피 확인을 위한 도구 설치 (net-tools)  
